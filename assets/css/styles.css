@@ -543,3 +543,7 @@ iframe {
     width: 1360px;
   }
 }
+
+.lazy{
+  position: relative; left: 50%; transform: translateX(-50%);
+}
