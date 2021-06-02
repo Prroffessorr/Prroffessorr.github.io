@@ -65,5 +65,30 @@ jQuery(document).ready(function($) {
         limit: 10 // optional
     });
 
-    
+    //Load more items
+    $('.list-loadmore li:lt(3)').show();
+    $('.list-loadmore li').not(':lt(3)').hide(300);
+    $('.less').hide();
+    var items =  document.getElementById('list-loadmore').getElementsByTagName('li').length;
+    var shown =  3;
+    $('.more').click(function () {
+        shown = $('.list-loadmore li:visible').length+3;
+        if(shown< items) {
+          $('.list-loadmore li:lt('+shown+')').show(300);
+        } else {
+          $('.list-loadmore li:lt('+items+')').show(300);
+          $('.more').hide();
+          $('.less').show();
+         
+        }
+    $('html,body').animate({
+        scrollTop: $(this).offset().top
+    }, 500);
+
+    });
+    $('.less').click(function () {
+        $('.list-loadmore li').not(':lt(3)').hide(300);
+        $('.more').show();
+        $('.less').hide();
+    });
 });
