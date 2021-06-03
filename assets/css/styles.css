@@ -566,7 +566,18 @@ iframe {
   transition: 0.5s;
 }
 
-.btn-cta-secondary:hover > i {
+.list ul li .page {
+  color: #3AAA64;
+}
+.show_more_project{
+  margin-top:20px;
+}
+
+.btn-cta-secondary{
+  margin-bottom:10px;
+}
+
+.btn-cta-secondary:hover > .fa-chevron-right {
   position: relative;
   animation: arrow-more 1s linear infinite;
 }
