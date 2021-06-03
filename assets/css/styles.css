@@ -547,3 +547,37 @@ iframe {
 .lazy{
   position: relative; left: 50%; transform: translateX(-50%);
 }
+.more, .less{
+  cursor: pointer;
+}
+
+.more > i, .less > i{
+  margin-left: 5px;
+  transition: 0.5s;
+}
+
+.more:hover > i{
+  transform: rotate(90deg);
+  transition: 0.5s;
+}
+
+.less:hover > i {
+  transform: rotate(180deg);
+  transition: 0.5s;
+}
+
+.btn-cta-secondary:hover > i {
+  position: relative;
+  animation: arrow-more 1s linear infinite;
+}
+@keyframes arrow-more {
+  0% {
+      left:0px;
+  }
+  50% {
+    left:3px;
+  }
+  100% {
+      left:0px;
+  }
+}
