@@ -81,14 +81,47 @@ jQuery(document).ready(function($) {
           $('.less').show();
          
         }
-    $('html,body').animate({
-        scrollTop: $(this).offset().top
-    }, 500);
 
+        //Get current position
+        position = $('html,body').scrollTop(),
+        $('html,body').animate({
+            scrollTop: position+$(this).offset().top
+        }, 1500);
     });
+
     $('.less').click(function () {
         $('.list-loadmore li').not(':lt(3)').hide(300);
         $('.more').show();
         $('.less').hide();
     });
 });
+
+//Получение информации об пользователе
+$.get("https://ipinfo.io", function(response) {
+    //Многоязычность контента
+var langArray = [
+    {value: "val1", text: "RU"},
+    {value: "val2", text: "UA"},
+    {value: "val3", text: "EN"},
+
+];
+
+var select = document.getElementById('options'),
+    option,
+    i = 0,
+    length = langArray.length;
+    
+    //Создаем ешементы в Select
+    for(var i=0; i<length; i++){
+        option = document.createElement('option');
+        option.setAttribute('value', langArray[i].value);
+        option.appendChild(document.createTextNode(langArray[i].text));
+        select.appendChild(option);
+
+        if(langArray[i].text == response.country && response.country != "UA"){
+            select[i].selected = true;
+            //Редиректим пользователя на страницу с переводом
+            window.location = "file:///D:/Git/Github_Desktop/Prroffessorr.github.io/Index.html"
+        }
+    }
+}, "jsonp");

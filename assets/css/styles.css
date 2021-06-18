@@ -53,6 +53,7 @@ a.btn {
 .btn .fa,
 a.btn .fa {
   margin-right: 5px;
+  margin-left: 5px;
 }
 .btn:focus,
 a.btn:focus {
