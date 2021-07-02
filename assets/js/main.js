@@ -82,14 +82,14 @@ jQuery(document).ready(function($) {
          
         }
 
-        //Get current position
-        position = $('html,body').scrollTop(),
         $('html,body').animate({
-            scrollTop: position+$(this).offset().top
-        }, 1500);
+             scrollTop: $(this).offset().top
+        }, 1000);
     });
 
     $('.less').click(function () {
+
+        window.scroll({top: document.getElementById("aside").offsetTop, left: 0, behavior: 'smooth'});
         $('.list-loadmore li').not(':lt(3)').hide(300);
         $('.more').show();
         $('.less').hide();
@@ -98,7 +98,9 @@ jQuery(document).ready(function($) {
 
 //Получение информации об пользователе
 $.get("https://ipinfo.io", function(response) {
-    //Многоязычность контента
+
+localStorage.setItem('current_country', "UA");
+//Многоязычность контента
 var langArray = [
     {value: "val1", text: "RU"},
     {value: "val2", text: "UA"},
@@ -118,10 +120,25 @@ var select = document.getElementById('options'),
         option.appendChild(document.createTextNode(langArray[i].text));
         select.appendChild(option);
 
-        if(langArray[i].text == response.country && response.country != "UA"){
-            select[i].selected = true;
+        //Переводим человека на нужную страницу
+        if(langArray[i].text == response.country && response.country != localStorage.getItem('current_country')){
             //Редиректим пользователя на страницу с переводом
-            window.location = "file:///D:/Git/Github_Desktop/Prroffessorr.github.io/Index.html"
+            window.location = "file:///D:/Git/Github_Desktop/Prroffessorr.github.io/Index.html";
+        }
+        //Делаем активный нужный язык
+        if(langArray[i].text == response.country ){
+            select[i].selected = true;
         }
     }
 }, "jsonp");
+
+$("select.select-country").change(function(){
+    language = $(this).children("option:selected").text();
+    localStorage.setItem('current_country', language);
+    window.location = "file:///D:/Git/Github_Desktop/Prroffessorr.github.io/Index-"+localStorage.getItem('current_country')+".html"
+});
+console.log(localStorage.getItem('current_country'));
+// $(".heading").click(function(){
+//     let cat = localStorage.getItem('current_country');
+//     console.log(cat);
+// });
