@@ -96,16 +96,20 @@ jQuery(document).ready(function($) {
     });
 });
 
+//Получаю текущее местоположение
+var url = location.href;
+//Получаю текущее местоположение
+var current_postion=url.substring(0,url.indexOf("Index"));
+
 //Получение информации об пользователе
 $.get("https://ipinfo.io", function(response) {
 
-localStorage.setItem('current_country', "UA");
+localStorage.setItem('current_country', "RU");
 //Многоязычность контента
 var langArray = [
-    {value: "val1", text: "RU"},
-    {value: "val2", text: "UA"},
-    {value: "val3", text: "EN"},
-
+    {value: "val1", text: "RU", lang: "ru", description_first: "Перейти на русскоязычную версию сайта ?", description_second: "(Получено на основе вашего местоположения)"},
+    {value: "val2", text: "UA", lang: "ua", description_first: "Перейти на украінськомовну версію сайту ?", description_second: "(Отримано на основі вашого місця розташування)"},
+    {value: "val3", text: "EN", lang: "en", description_first: "Go to the English version of the site ?", description_second: "(Obtained based on your location)"},
 ];
 
 var select = document.getElementById('options'),
@@ -123,10 +127,22 @@ var select = document.getElementById('options'),
         //Переводим человека на нужную страницу
         if(langArray[i].text == response.country && response.country != localStorage.getItem('current_country')){
             //Редиректим пользователя на страницу с переводом
-            window.location = "file:///D:/Git/Github_Desktop/Prroffessorr.github.io/Index.html";
+            if(window.location.href != current_postion + "Index-" + langArray[i].lang + ".html"){
+                var description_first = langArray[i].description_first;
+                var description_second = langArray[i].description_second;
+                var lang = langArray[i].lang;
+
+                //Вызов функии перенаправления после 1 секундной задержки
+                setTimeout(function(){
+                    var go_to_translate = confirm("\n"+description_first+"\n"+description_second);                  
+                    if(go_to_translate==true){
+                        window.location.href = current_postion + "Index-" + lang + ".html";
+                    }
+                }, 1000); 
+            }
         }
         //Делаем активный нужный язык
-        if(langArray[i].text == response.country ){
+        if(langArray[i].text == localStorage.getItem('current_country')){
             select[i].selected = true;
         }
     }
@@ -135,10 +151,5 @@ var select = document.getElementById('options'),
 $("select.select-country").change(function(){
     language = $(this).children("option:selected").text();
     localStorage.setItem('current_country', language);
-    window.location = "file:///D:/Git/Github_Desktop/Prroffessorr.github.io/Index-"+localStorage.getItem('current_country')+".html"
+    window.location = current_postion + "Index-" +localStorage.getItem('current_country') + ".html"
 });
-console.log(localStorage.getItem('current_country'));
-// $(".heading").click(function(){
-//     let cat = localStorage.getItem('current_country');
-//     console.log(cat);
-// });
