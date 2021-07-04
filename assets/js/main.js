@@ -110,18 +110,18 @@ var langArray = [
 var langAbout = [
     {lang: "RU", name: "Татарников Андрей", description: "Добрый день, я являюсь PHP/CMS Backend разработчиком. Занимаюсь разработкой сайтов под ключ на основе \
     WordPress и других CMS. Таких как Joomla, Opencart и тд. Все зависит от задачи и пожеланий клиента. \
-    Также я работаю с Photoshop, Adobe Illustrator, HTML5, CSS3, JS тд. Более подробно с моими работами вы можете в разделе\
+    Также я работаю с Photoshop, Adobe Illustrator, HTML5, CSS3, JS тд. Более подробно ознакомиться с моими работами вы можете в разделе\
     \"Мои проекты\"."},
 
     {lang: "UA", name: "Татарников Андрій", description: "Добрий день, я є PHP/CMS Backend розробником. Займаюся розробкою сайтів під ключ на основі \
-    WordPress і інших CMS. Таких як Joomla, Opencart і тд. Все залежить від завдання і побажань клієнта. \
-    Також я працюю з Photoshop, Adobe Illustrator, HTML5, CSS3, JS тд. Більш детально з моїми роботами ви можете в розділі \
+    WordPress і інших CMS. Таких як Joomla, Opencart і ті. Все залежить від завдання і побажань клієнта. \
+    Також я працюю з Photoshop, Adobe Illustrator, HTML5, CSS3, JS тд. Більш детально ознайомитися з моїми роботами ви можете в розділі \
     \"Мої проекти\"."},
 
-    {lang: "EN", name: "Tatarnikov Andrey", description: "Hello, I am a PHP / CMS Backend developer. I develop turnkey sites based on \
-     WordPress and other CMS. Such as Joomla, Opencart, etc. It all depends on the task and wishes of the client. \
-     I also work with Photoshop, Adobe Illustrator, HTML5, CSS3, JS, etc. You can learn more about my works in the section \
-     \"My projects\"."},
+    {lang: "EN", name: "Tatarnykov Andrey", description: "Hello, I am a PHP / CMS Backend developer. I am engaged in the development of turnkey websites based on \
+    WordPress and other CMS. Such as Joomla, Opencart, etc. It all depends on the task and wishes of the client. \
+    I also work with Photoshop, Adobe Illustrator, HTML5, CSS3, JS etc. For more details on my work you can see the section \
+    \"My projects\"."},
 ];
 
 //Получение информации об пользователе
