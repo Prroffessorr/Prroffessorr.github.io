@@ -196,6 +196,9 @@ iframe {
   font-size: 18px;
   margin-top: 0;
 }
+.title-red{
+  color: orangered;
+}
 .latest .item .title .label {
   margin-left: 5px;
   font-size: 12px;
