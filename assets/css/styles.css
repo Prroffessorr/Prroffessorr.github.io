@@ -596,3 +596,34 @@ iframe {
       left:0px;
   }
 }
+/*Анимированый текст*/
+
+.animate-p {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+.animate-p span {
+  color: #778492;
+  font: 700 0.8em "Oswald", sans-serif;
+  display: block;
+  margin-top: 20px;
+
+  background: url(https://idg.net.ua/blog/wp-content/uploads/repeating-linear-gradient.png) repeat-y;
+  background-size: 1000px 500px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: aitf 15s linear infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+}
+/* Animate Background Image */
+@-webkit-keyframes aitf {
+  0% {
+    background-position: 0% 50%;
+ }
+  100% {
+    background-position: 100% 50%;
+ }
+}
