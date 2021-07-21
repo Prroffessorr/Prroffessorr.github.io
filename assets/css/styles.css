@@ -653,11 +653,6 @@ button::before {
   transition: all .3s ease-in-out 0s;
 }
 
-.pulse-button:hover, .pulse-button:focus {
-  color: #313133;
-  transform: translateY(-6px);
-}
-
 a:hover::before, a:focus::before {
   opacity: 1;
 }
