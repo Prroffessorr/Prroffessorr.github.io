@@ -143,7 +143,8 @@ var select = document.getElementById('options'),
         option.appendChild(document.createTextNode(langArray[i].lang));
         select.appendChild(option);
 
-        if(location.href != current_postion + "Index.html"){
+        if(location.href != current_postion + "Index.html" && url.split("-")[1]){ //.replace(/#(.*)/gm, "")
+
             localStorage.setItem('current_country', url.split("-")[1].split(".")[0].toUpperCase());
             sessionStorage.setItem('make_go', 1);
             //Добавление информации в тег title и мета теги description c author нужную информацию в зависимости от языка
