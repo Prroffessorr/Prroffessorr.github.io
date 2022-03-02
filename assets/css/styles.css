@@ -61,8 +61,8 @@ a.btn:focus {
 }
 a.btn-cta-primary,
 .btn-cta-primary {
-  background: #54ba4e;
-  border: 1px solid #54ba4e;
+  background: #ff4b00;
+  border: 1px solid #ff4b00;
   color: #fff;
   font-weight: 600;
   text-transform: uppercase;
@@ -694,7 +694,7 @@ iframe {
     margin-left: 25px;
   }
 }
-.pulse-button {
+.pulse-button, .pulse-button-cv {
   background: rgb(79, 209, 129);
   background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
   border: none;
@@ -724,16 +724,18 @@ a:hover::before, a:focus::before {
 
 .pulse-button::after {
   content: '';
-  width: 30px; height: 30px;
+  width: 60px;
+  height: 60px;
   border-radius: 5%;
-  border: 5px solid rgb(79, 209, 129);;
+  border: 5px solid #ff0000;
   position: absolute;
   top: 50%;
   left: 50%;
   z-index: 0;
   transform: translate(-50%, -50%);
-  animation: ring 1.5s infinite;
+  animation: ring 0.9s infinite;
 }
+
 
 a:hover::after, feFuncA:focus::after {
   animation: none;
